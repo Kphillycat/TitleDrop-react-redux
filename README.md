@@ -1,1 +1,1 @@
-Same as this bad boi[https://github.com/Kphillycat/TitleDrop] just without the reaction....OOOoooooOOOOOooooooOOOOO!
+Same as this [bad boi](https://github.com/Kphillycat/TitleDrop "Original Title Drop") just without the reaction....OOOoooooOOOOOooooooOOOOO!
