@@ -17,3 +17,28 @@
 .movie-card .time {
   font-size: .75em;
 }
+
+input[type="text"] {
+	width: 45%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: solid 5px #c9c9c9;
+  transition: border 0.3s;
+}
+input[type="text"]:focus {
+  border: solid 5px #969696;
+}
+input[type="text"]:first-of-type {
+	margin-right: 10px;
+}
+form {
+	width: 100%;
+}
+input[type="submit"] {
+	width: 50%;
+	margin: 0 auto;
+	background: lightblue;
+	color: white;
+	font-size: 2em;
+	cursor: pointer;
+}
