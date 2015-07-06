@@ -1,0 +1,20 @@
+{
+  "name": "title_drop-react",
+  "version": "1.0.0",
+  "description": "When they say the name of movie IN the movie!",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "keywords": [
+    "movies",
+    "react",
+    "boomshakala"
+  ],
+  "author": "Keith Williams Jr. (Kphillycat)",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.1"
+  }
+}
