@@ -1,0 +1,19 @@
+.movie-card {
+  background: lightblue;
+  padding: 5px;
+  width: 200px;
+  height: 150px;
+  margin: 10px;
+}
+
+.movie-card div {
+  text-align: center;
+}
+
+.movie-card .title {
+  font-size: 1.5em;
+}
+
+.movie-card .time {
+  font-size: .75em;
+}

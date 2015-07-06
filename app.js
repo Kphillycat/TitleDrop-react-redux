@@ -11,7 +11,7 @@ app.use('/', express.static(path.join(__dirname, 'public')));
 app.get('/movies', function(req, res){
 	fs.readFile('data.json', function(err, data) {
 	    res.setHeader('Cache-Control', 'no-cache');
-	    res.json(JSON.parse(data));
+	    res.json(JSON.parse(data)['movies']);
 	  });
 });
 
