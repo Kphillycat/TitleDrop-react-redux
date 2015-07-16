@@ -2,13 +2,19 @@
 <html>
 <head>
 	<title>Title Drop w/ React</title>
-	<link rel="stylesheet" type="text/css" href="styles/css/app.css">
-	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.0/react.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.0/JSXTransformer.js"></script>
+	<!-- inject:css -->
+  	<link rel="stylesheet" href="/styles/css/app.css">
+  	<!-- endinject -->
+	
 </head>
 <body>
 	<div id="content" class="container"></div>
-	<script type="text/jsx;harmony=true" src="scripts/movies.js"></script>
+  	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.0/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.0/JSXTransformer.js"></script>
+    <!-- inject:jsx -->
+  	<script type="text/jsx" src="/scripts/movies.jsx"></script>
+  	<!-- endinject -->	
+	<!-- <script type="text/jsx;harmony=true" src="scripts/movies.js"></script> -->
 </body>
 </html>

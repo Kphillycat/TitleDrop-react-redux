@@ -4,7 +4,8 @@ var gulp  = require('gulp'),
 	maps = require('gulp-sourcemaps'),
 	minifyCSS = require('gulp-minify-css'),
     prefixer  = require('gulp-autoprefixer'),
-    del = require('del');
+    del = require('del'),
+    inject = require('gulp-inject');
 
 var paths = {
 	css: 'public/styles/css',
@@ -40,4 +41,15 @@ gulp.task('build', ['compileSass'], function(){
 
 gulp.task('default', ['clean'], function(){
 	gulp.start('build');
+});
+
+// Add all static dependencies
+
+gulp.task('index', function () {
+  var target = gulp.src('views/index.html');
+  // It's not necessary to read the files (will speed up things), we're only after their paths:
+  var sources = gulp.src(['public/**/*.jsx','public/**/*.css'], {read: false});
+
+  return target.pipe(inject(sources, {ignorePath: 'public'}))
+    .pipe(gulp.dest('views'));
 });
