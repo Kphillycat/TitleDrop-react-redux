@@ -3,7 +3,8 @@ var gulp  = require('gulp'),
 	sass = require('gulp-sass'),
 	maps = require('gulp-sourcemaps'),
 	minifyCSS = require('gulp-minify-css'),
-    prefixer  = require('gulp-autoprefixer');
+    prefixer  = require('gulp-autoprefixer'),
+    del = require('del');
 
 var paths = {
 	css: 'public/styles/css',
@@ -11,7 +12,7 @@ var paths = {
 };
 
 gulp.task('compileSass', function(){
-	gulp.src(paths.sass)
+	return gulp.src(paths.sass)
 		.pipe(maps.init())
 		.pipe(sass())
 		.pipe(prefixer({
@@ -24,4 +25,19 @@ gulp.task('compileSass', function(){
 		.pipe(gulp.dest(paths.css));
 });
 
-gulp.task('default', ['compileSass']);
+gulp.task('watchSass', function(){
+	gulp.watch('public/styles/scss/**/*.scss', ['compileSass']);
+});
+
+gulp.task('clean', function(){
+	del(['dist', paths.css + '/app.css*']);
+});
+
+gulp.task('build', ['compileSass'], function(){
+	return gulp.src([paths.css + '/app.css', 'views/index.html'], { base: '.'})
+		.pipe(gulp.dest('dist'));
+	});
+
+gulp.task('default', ['clean'], function(){
+	gulp.start('build');
+});
