@@ -1,17 +1,27 @@
 var gulp  = require('gulp'),
 	watch = require('gulp-watch'),
-	less  = require("gulp-less"),
-	minifyCSS = require('gulp-minify-css');
+	sass = require('gulp-sass'),
+	maps = require('gulp-sourcemaps'),
+	minifyCSS = require('gulp-minify-css'),
+    prefixer  = require('gulp-autoprefixer');
 
+var paths = {
+	css: 'public/styles/css',
+	sass: 'public/styles/scss/app.scss'
+};
 
-
-gulp.task('mini-less', function() {
-    var files = 'public/styles/less/*.less';
-    return gulp.src(files)
-        .pipe(watch(files))
-        .pipe(less())
+gulp.task('compileSass', function(){
+	gulp.src(paths.sass)
+		.pipe(maps.init())
+		.pipe(sass())
+		.pipe(prefixer({
+			browsers: ['last 3 versions'],
+            cascade: false
+        }))
         .pipe(minifyCSS())
-        .pipe(gulp.dest('public/styles/css'));
+		// Path for source maps to dest relative to the sass dest directory. This puts its in the same css dir
+		.pipe(maps.write('./'))
+		.pipe(gulp.dest(paths.css));
 });
 
-gulp.task('default', ['mini-less']);
+gulp.task('default', ['compileSass']);
