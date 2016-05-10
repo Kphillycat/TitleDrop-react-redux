@@ -1,12 +1,14 @@
 import React, {Component} from 'react'
 import Movie from './Movie'
+import _ from 'lodash'
 
 class MovieList extends Component {
   render() {
-    var movieNodes = this.props.movies.map((movie, index) => {
+    var movieNodes = _.map(this.props.movies, (movie, index) => {
       return (
         // `key` is a React-specific concept:
-        <Movie time={movie.time} title={movie.title} key={movie.id}>
+        // http://facebook.github.io/react/docs/multiple-components.html#dynamic-children
+        <Movie time={movie.time} title={movie.title} key={index}>
         </Movie>
       );
     });

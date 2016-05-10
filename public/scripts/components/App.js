@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import MovieBox from './MovieBox'
+import { bindActionCreators } from 'redux'
+import actions from '../redux/actions'
 
 class App extends Component {
 
@@ -8,7 +10,7 @@ class App extends Component {
     return (
       <div>
           <h1>Title DROP!!!</h1>
-          <MovieBox dispatch={this.props.dispatch} movies={this.props.movies} url="movies"></MovieBox>
+          <MovieBox addMovie={this.props.actions.addMovie} movies={this.props.movies} url="movies"></MovieBox>
       </div>
     )
   }
@@ -19,4 +21,10 @@ function mapStateToProps(state) {
   return state
 }
 
-export default connect(mapStateToProps)(App)
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(actions, dispatch) //Wraps all actions with dispatcher. Actions.addMovie(), etc.
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)

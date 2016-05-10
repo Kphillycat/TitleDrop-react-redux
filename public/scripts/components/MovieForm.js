@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import actions from '../redux/actions'
 
 class MovieForm extends Component {
   constructor(props) {
@@ -33,8 +32,11 @@ class MovieForm extends Component {
       title: this.state.titleText,
       time: this.state.timeText
     }
-    this.props.dispatch(actions.addMovie(movieDetail));
-
+    this.props.actions.addMovie(movieDetail);
+    // this.props.actions.addMovie({
+    //   timeText: '',
+    //   titleText: ''
+    // });
     this.setState({
       timeText: '',
       titleText: ''

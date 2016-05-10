@@ -1,3 +1,6 @@
+var path = require('path');
+var webpack = require('webpack');
+
 
 module.exports = {
   devtool: 'inline-source-map',
@@ -6,7 +9,7 @@ module.exports = {
   ],
   output: {
     path: require("path").resolve("./public/scripts/dist"),
-    filename: 'bundle.js',
+    filename: '[name].bundle.js',
     publicPath: '/public'
   },
   module: {
