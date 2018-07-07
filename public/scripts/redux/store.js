@@ -1,10 +1,10 @@
 import { applyMiddleware, compose, createStore } from 'redux'
 import reducer from './reducer'
-import logger from 'redux-logger'
+import {logger} from 'redux-logger'
 
 // For logging middleware
 let finalCreateStore = compose(
-  applyMiddleware(logger())
+  applyMiddleware(logger)
 )(createStore)
 
 

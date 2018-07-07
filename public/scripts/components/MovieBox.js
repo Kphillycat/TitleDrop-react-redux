@@ -10,8 +10,8 @@ class MovieBox extends Component {
 	render () {
 		return (
 			<div className="movies-box">
-        <MovieList movies={this.props.movies}></MovieList>
         <MovieForm dispatch={this.props.dispatch} />
+        <MovieList movies={this.props.movies}></MovieList>
 			</div>
     );
 	}

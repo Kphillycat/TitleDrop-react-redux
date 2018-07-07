@@ -1,11 +1,11 @@
-var gulp  = require('gulp'),
+let gulp  = require('gulp'),
 	watch = require('gulp-watch'),
 	sass = require('gulp-sass'),
 	maps = require('gulp-sourcemaps'),
 	minifyCSS = require('gulp-minify-css'),
-    prefixer  = require('gulp-autoprefixer'),
-    del = require('del'),
-    inject = require('gulp-inject');
+  prefixer  = require('gulp-autoprefixer'),
+  del = require('del'),
+  inject = require('gulp-inject');
 
 var paths = {
 	css: 'public/styles/css',
